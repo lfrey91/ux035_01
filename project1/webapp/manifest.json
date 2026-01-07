@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.20.0",
-      "toolsId": "b2a090a6-7c83-4172-baa6-ccbfa558b4b4"
+      "toolsId": "06e770d8-9da2-48b0-be08-517b052383e3"
     },
     "dataSources": {
       "ZUX35_TRAINER1_V2_VAN": {

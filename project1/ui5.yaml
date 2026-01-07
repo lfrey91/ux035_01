@@ -17,8 +17,8 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap
-            url: https://a23_500_http.dest
-            destination: A23_500_HTTP
+            url: https://a23_500_https.dest
+            destination: A23_500_HTTPS
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

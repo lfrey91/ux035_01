@@ -1,13 +1,13 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Wed Jan 07 2026 12:10:15 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Wed Jan 07 2026 12:25:32 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>SAP Fiori Application Generator|
 |**App Generator Version**<br>1.20.0|
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>List Report Page V2|
 |**Service Type**<br>SAP System (ABAP On-Premise)|
-|**Service URL**<br>https://a23_500_http.dest/sap/opu/odata/sap/ZUX35_TRAINER1_V2|
+|**Service URL**<br>https://a23_500_https.dest/sap/opu/odata/sap/ZUX35_TRAINER1_V2|
 |**Module Name**<br>project1|
 |**Application Title**<br>App Title|
 |**Namespace**<br>|
