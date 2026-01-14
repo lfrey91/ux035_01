@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zux35_trainer1_so.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ItemSetType">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                    <PropertyRef Name="SalesOrderItem"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="GrossAmountInTransacCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="NetAmountInTransactionCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="TaxAmountInTransactionCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="ProductAvailabilityStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="OpportunityItem" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="QuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ProductSize" Type="Edm.String" Nullable="false" MaxLength="21"/>
+                <Property Name="ProductSizeCritical" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="Weight2" Type="Edm.Decimal" Nullable="false" Precision="12" Scale="3"/>
+                <Property Name="WeightUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Rating" Type="Edm.Byte" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="ChartType">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                    <PropertyRef Name="SalesOrderItem"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="GrossAmountInTransacCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="NetAmountInTransactionCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="TaxAmountInTransactionCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+            </EntityType>
+            <EntityType Name="zux35_trainer1_c_soType">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Customer" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="GrossAmountInTransacCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="NetAmountInTransactionCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="TaxAmountInTransactionCurrency" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="variable"/>
+                <Property Name="SalesOrderLifeCycleStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="SalesOrderBillingStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="SalesOrderDeliveryStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="SalesOrderOverallStatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="LastChangedDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="CompanyName" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="CompanyNameUrl" Type="Edm.String" Nullable="false" MaxLength="107"/>
+                <Property Name="CompanyNameInline" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <Property Name="CompanyNameButton" Type="Edm.String" Nullable="false" MaxLength="80"/>
+                <NavigationProperty Name="_Chart" Type="Collection(com.sap.gateway.srvd.zux35_trainer1_so.v0001.ChartType)"/>
+                <NavigationProperty Name="_Item" Type="Collection(com.sap.gateway.srvd.zux35_trainer1_so.v0001.ItemSetType)"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="Chart" EntityType="com.sap.gateway.srvd.zux35_trainer1_so.v0001.ChartType"/>
+                <EntitySet Name="ItemSet" EntityType="com.sap.gateway.srvd.zux35_trainer1_so.v0001.ItemSetType"/>
+                <EntitySet Name="zux35_trainer1_c_so" EntityType="com.sap.gateway.srvd.zux35_trainer1_so.v0001.zux35_trainer1_c_soType">
+                    <NavigationPropertyBinding Path="_Chart" Target="Chart"/>
+                    <NavigationPropertyBinding Path="_Item" Target="ItemSet"/>
+                </EntitySet>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ItemSetType/SalesOrder">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Order ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/SalesOrderItem">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Item Position"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Order Item Position"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Item Position"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/TransactionCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Currency Code"/>
+                <Annotation Term="SAP__common.Heading" String="ISO Currency Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Currency Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/GrossAmountInTransacCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Gross Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Gross Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Gross Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/NetAmountInTransactionCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Net Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Net Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Net Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/TaxAmountInTransactionCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Tax Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Tax Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Tax Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/ProductAvailabilityStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="ATP Status"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Order Item ATP Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Item ATP Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/OpportunityItem">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Item Position"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Order Item Position"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Item Position"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/Quantity">
+                <Annotation Term="SAP__measures.Unit" Path="QuantityUnit"/>
+                <Annotation Term="SAP__common.Label" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/QuantityUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Measure"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Quantity Unit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/Weight2">
+                <Annotation Term="SAP__measures.Unit" Path="WeightUnit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/WeightUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Measure"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Weight Unit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType">
+                <Annotation Term="SAP__common.Label" String="sales order item fiori elements"/>
+                <Annotation Term="SAP__UI.DataPoint" Qualifier="Rating">
+                    <Record>
+                        <PropertyValue Property="Value" Path="Rating"/>
+                        <PropertyValue Property="Title" String="sales order item fiori elements"/>
+                        <PropertyValue Property="TargetValue" Decimal="3"/>
+                        <PropertyValue Property="Visualization" EnumMember="SAP__UI.VisualizationType/Rating"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.DataPoint" Qualifier="Weight2">
+                    <Record>
+                        <PropertyValue Property="Value" Path="Weight2"/>
+                        <PropertyValue Property="Title" String="sales order item fiori elements"/>
+                        <PropertyValue Property="TargetValue" Decimal="20"/>
+                        <PropertyValue Property="Visualization" EnumMember="SAP__UI.VisualizationType/Progress"/>
+                        <PropertyValue Property="Criticality" Path="ProductSizeCritical"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Criticality" Path="ProductSizeCritical"/>
+                            <PropertyValue Property="Value" Path="ProductSize"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.DataPoint#Weight2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAnnotation">
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.DataPoint#Rating"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TransactionCurrency"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossAmountInTransacCurrency"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="NetAmountInTransactionCurrency"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TaxAmountInTransactionCurrency"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductAvailabilityStatus"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OpportunityItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="QuantityUnit"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ItemSet">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="GrossAmountInTransacCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="NetAmountInTransactionCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="TaxAmountInTransactionCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Quantity"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Weight2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ChartType/SalesOrder">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Order ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ChartType/SalesOrderItem">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Item Position"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Order Item Position"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Item Position"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ChartType/TransactionCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Currency Code"/>
+                <Annotation Term="SAP__common.Heading" String="ISO Currency Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Currency Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ChartType/GrossAmountInTransacCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__aggregation.CustomAggregate" Qualifier="GrossAmountInTransacCurrency" String="Edm.Decimal"/>
+                <Annotation Term="SAP__common.Label" String="Gross Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Gross Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Gross Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ChartType/NetAmountInTransactionCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__aggregation.CustomAggregate" Qualifier="NetAmountInTransactionCurrency" String="Edm.Decimal"/>
+                <Annotation Term="SAP__common.Label" String="Net Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Net Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Net Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ChartType/TaxAmountInTransactionCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__aggregation.CustomAggregate" Qualifier="TaxAmountInTransactionCurrency" String="Edm.Decimal"/>
+                <Annotation Term="SAP__common.Label" String="Tax Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Tax Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Tax Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ChartType">
+                <Annotation Term="SAP__common.Label" String="Sales Order chart"/>
+                <Annotation Term="SAP__UI.Chart" Qualifier="AmountPerProduct">
+                    <Record Type="SAP__UI.ChartDefinitionType">
+                        <PropertyValue Property="ChartType" EnumMember="SAP__UI.ChartType/Column"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>Product</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>TaxAmountInTransactionCurrency</PropertyPath>
+                                <PropertyPath>NetAmountInTransactionCurrency</PropertyPath>
+                                <PropertyPath>GrossAmountInTransacCurrency</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/Chart">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="GrossAmountInTransacCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="NetAmountInTransactionCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="TaxAmountInTransactionCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/SalesOrder">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Order ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/Customer">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zux35_trainer1_customername_vh/0001;ps='srvd-zux35_trainer1_so-0001';va='com.sap.gateway.srvd.zux35_trainer1_so.v0001.et-zux35_trainer1_c_so.customer'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Customer"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Customer ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/TransactionCurrency">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Currency Code"/>
+                <Annotation Term="SAP__common.Heading" String="ISO Currency Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Currency Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/GrossAmountInTransacCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Gross Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Gross Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Gross Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/NetAmountInTransactionCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Net Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Net Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Net Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/TaxAmountInTransactionCurrency">
+                <Annotation Term="SAP__measures.ISOCurrency" Path="TransactionCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Tax Amount"/>
+                <Annotation Term="SAP__common.Heading" String="Total Tax Amount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Total Tax Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/SalesOrderLifeCycleStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Lifecycle Status"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Order Lifecycle Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Lifecycle Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/SalesOrderBillingStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Confirmation Status"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Order Confirmation Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Confirmation Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/SalesOrderDeliveryStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Ordering Status"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Order Ordering Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Ordering Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/SalesOrderOverallStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Overall Status"/>
+                <Annotation Term="SAP__common.Heading" String="Sales Order Overall Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Sales Order Overall Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/CreatedByUser">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Created By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Created By User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/CreationDateTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Created At"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Created At"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/LastChangedByUser">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Last Changed By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Last Changed By User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/LastChangedDateTime">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Changed At"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Changed At"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/zux35_trainer1_c_so">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Chart"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Item"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="GrossAmountInTransacCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="NetAmountInTransactionCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="TaxAmountInTransactionCurrency"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType">
+                <Annotation Term="SAP__common.Label" String="sales order fiori elements"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="Admin Data"/>
+                            <PropertyValue Property="ID" String="SECTION1"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Allgemeine Informationen"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#General"/>
+                                    </Record>
+                                    <Record Type="SAP__UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="Admin Daten"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#AdminData"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Item"/>
+                            <PropertyValue Property="ID" String="SECTION2"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Item/@SAP__UI.LineItem"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Chart"/>
+                            <PropertyValue Property="ID" String="SECTION3"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Chart/@SAP__UI.Chart#AmountPerProduct"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Mengeninformationen"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#Amount"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Statusinformationen"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#Status"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="AdminData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedByUser"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreationDateTime"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="LastChangedByUser"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="LastChangedDateTime"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="Amount">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="GrossAmountInTransacCurrency"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="NetAmountInTransactionCurrency"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="TaxAmountInTransactionCurrency"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="General">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrder"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Customer"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="CompanyName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="Status">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrderLifeCycleStatus"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrderOverallStatus"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrderBillingStatus"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="SalesOrderDeliveryStatus"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Kundenauftrag"/>
+                        <PropertyValue Property="TypeNamePlural" String="Kundenaufträge"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="SalesOrder"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="CompanyName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Customer"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrder"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldWithUrl">
+                            <PropertyValue Property="Value" Path="CompanyName"/>
+                            <PropertyValue Property="Url" Path="CompanyNameUrl"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldWithIntentBasedNavigation">
+                            <PropertyValue Property="SemanticObject" String="Action"/>
+                            <PropertyValue Property="Action" String="toappnavsample2"/>
+                            <PropertyValue Property="Value" Path="CompanyNameInline"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossAmountInTransacCurrency"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForIntentBasedNavigation">
+                            <PropertyValue Property="Label" String="Navig"/>
+                            <PropertyValue Property="SemanticObject" String="Action"/>
+                            <PropertyValue Property="Action" String="toappnavsample2"/>
+                            <PropertyValue Property="RequiresContext" Bool="false"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="NetAmountInTransactionCurrency"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TaxAmountInTransactionCurrency"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderLifeCycleStatus"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrderOverallStatus"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TransactionCurrency"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Customer</PropertyPath>
+                        <PropertyPath>SalesOrderOverallStatus</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="Communication.Contact">
+                    <Record/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/CompanyNameInline">
+                <Annotation Term="SAP__common.SemanticObject" String="Action"/>
+                <Annotation Term="SAP__common.Label" String="Company"/>
+                <Annotation Term="SAP__common.Heading" String="Company Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Company Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/CompanyNameButton">
+                <Annotation Term="SAP__common.SemanticObject" String="Action"/>
+                <Annotation Term="SAP__common.Label" String="Company"/>
+                <Annotation Term="SAP__common.Heading" String="Company Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Company Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/ProductSizeCritical">
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemSetType/Product">
+                <Annotation Term="SAP__common.Label" String="Product ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Product ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ChartType/Product">
+                <Annotation Term="SAP__common.Label" String="Product ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Product ID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zux35_trainer1_c_soType/CompanyName">
+                <Annotation Term="SAP__common.Label" String="Company"/>
+                <Annotation Term="SAP__common.Heading" String="Company Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="EPM: Company Name"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
